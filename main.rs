@@ -79,9 +79,8 @@ impl Blockchain {
         *self.balances.entry(miner).or_insert(0) += 10;
     }
 }
-
 fn main() {
-    let mut blockchain = Blockchain::new();
+let mut blockchain = Blockchain::new();
     blockchain.create_genesis_block();
     
     blockchain.add_transaction("Alice".to_string(), "Bob".to_string(), 50);
@@ -93,3 +92,9 @@ fn main() {
     println!("Total blocks: {}", blockchain.chain.len());
     println!("Pending transactions: {}", blockchain.pending_transactions.len());
   }
+fn calculate_hash(data: &str) -> String {
+let mut hasher = Sha256::new();
+    hasher.update(data.as_bytes());
+    let result = hasher.finalize();
+    hex::encode(result)
+}
