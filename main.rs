@@ -41,7 +41,7 @@ impl Blockchain {
             timestamp: Self::get_timestamp(),
             transactions: vec![],
             previous_hash: "0".to_string(),
-            hash: "genesis_hash".to_string(),
+            hash: calculate_hash("genesis")
         };
         self.chain.push(genesis_block);
     }
