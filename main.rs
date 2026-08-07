@@ -72,7 +72,7 @@ impl Blockchain {
             previous_hash,
             hash: String::new(),
         };
-        block.hash = format!("block_{}", block.index);
+        block.hash = calculate_hash(&format!("{}{}{:?}", block.index, block.previous_hash, block.transactions));
         self.chain.push(block);
         self.pending_transactions.clear();
         
