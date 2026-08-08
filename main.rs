@@ -99,3 +99,6 @@ let mut hasher = Sha256::new();
     let result = hasher.finalize();
     hex::encode(result)
 }
+fn sign_message(message: &[u8], signing_key: &SigningKey) -> Signature {
+    signing_key.sign(message)
+}
