@@ -109,3 +109,12 @@ fn create_signing_key() -> SigningKey {
     let secret = [0u8; 32];
     SigningKey::from_bytes(&secret)
             }
+fn test_signature() -> bool {
+    let signing_key = create_signing_key();
+    let verifying_key = signing_key.verifying_key();
+    let message = b"Pend test";
+
+    let signature = sign_message(message, &signing_key);
+
+    verify_message(message, &signature, &verifying_key)
+    }
