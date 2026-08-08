@@ -92,6 +92,7 @@ let mut blockchain = Blockchain::new();
     println!("Blockchain created!");
     println!("Total blocks: {}", blockchain.chain.len());
     println!("Pending transactions: {}", blockchain.pending_transactions.len());
+    println!("Signature test: {}", test_signature());
   }
 fn calculate_hash(data: &str) -> String {
 let mut hasher = Sha256::new();
