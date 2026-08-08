@@ -102,3 +102,6 @@ let mut hasher = Sha256::new();
 fn sign_message(message: &[u8], signing_key: &SigningKey) -> Signature {
     signing_key.sign(message)
 }
+fn verify_message(message: &[u8], signature: &Signature, verifying_key: &VerifyingKey) -> bool {
+    verifying_key.verify(message, signature).is_ok()
+}
