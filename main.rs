@@ -108,8 +108,9 @@ fn verify_message(message: &[u8], signature: &Signature, verifying_key: &Verifyi
     verifying_key.verify(message, signature).is_ok()
 }
 fn create_signing_key() -> SigningKey {
-    let secret = [0u8; 32];
-    SigningKey::from_bytes(&secret)
+    let mut secret = [0u8; 32];
+rand::thread_rng().fill_bytes(&mut secret);
+SigningKey::from_bytes(&secret)
             }
 fn test_signature() -> bool {
     let signing_key = create_signing_key();
