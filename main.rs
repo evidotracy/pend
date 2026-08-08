@@ -1,4 +1,5 @@
 use sha2::{Sha256, Digest};
+use ed25519_dalek::{SigningKey, VerifyingKey, Signature, Signer, Verifier};
 use hex;
 use std::collections::HashMap;
 use std::time::{SystemTime, UNIX_EPOCH};
